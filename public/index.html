@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Meu Supermercado</title>
-    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/node_modules/angular/angular.min.js"></script>
-    <script src="js/main.js"></script>
+    <title>Meu Supermercado</title><link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
 </head>
 
 <body>
-    <h1>Meu Supermercado</h1>
+    <div class="container">
+        <h1 class="text-center">Seu Supermercado</h1>
+    </div>
 </body>
 
+<script src="js/controllers/SupermarketController.js"></script>
+<script>
+    new SupermarketController();
+</script>
 </html>
