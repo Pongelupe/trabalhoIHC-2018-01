@@ -1,6 +1,8 @@
 class SupermarketController {
 
     constructor() {
+        this._init();
+
         let $ = document.querySelector.bind(document);
 
         this._inputName = $('#productName');
@@ -11,6 +13,32 @@ class SupermarketController {
         this._message = new Bind(
             new Message(), new MessageView($('#mesageView')),
             'content');
+    }
+
+    _init() {
+        swal({
+            closeOnEsc: false,
+            closeOnClickOutside: false,
+            text: "Insira o valor que será gasto nesta compra!",
+            content: {
+                element: "input",
+                attributes: {
+                    value: "0.00",
+                    type: "Number",
+                    step: "0.01"
+                },
+            }
+        }).then(value => {
+            if (!value)
+                this._init();
+            else {
+                this._initialValue = value;
+                document.querySelector('#initialValue').innerHTML = value;
+                let debitsView = document.querySelector('#debits');
+                this._debits = new Bind(new Debits(value),
+                    new DebitsView(debitsView), 'addDebit', 'removeAll');
+            }
+        });
     }
 
     addProduct(event) {
@@ -24,6 +52,8 @@ class SupermarketController {
 
             this._message.type = 'success';
             this._message.content = `${product.name} adicionado com sucesso!`;
+
+            this._debits.addDebit(product.value);
 
             this._resetForm();
         } else {
@@ -45,7 +75,17 @@ class SupermarketController {
     }
 
     removeAllProducts() {
-        this._listProducts.removeAll();
+        swal({
+            icon: 'warning',
+            text: "Deseja limpar sua lista?",
+            buttons: ["Cancelar", true]
+        })
+            .then(value => {
+                if (value) {
+                    this._listProducts.removeAll();
+                    this._debits.removeAll();
+                }
+            });
     }
 
     _resetForm() {

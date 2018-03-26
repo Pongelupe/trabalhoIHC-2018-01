@@ -13,7 +13,8 @@ class ProductsList {
     }
 
     get totalValue() {
-        return this._products.reduce((sum, x) => sum + parseFloat(x.value), 0.0);
+        let total = this._products.reduce((sum, x) => sum + parseFloat(x.value), 0.0);
+        return parseFloat(Math.round(total * 100) / 100).toFixed(2);
     }
 
     removeAll() {

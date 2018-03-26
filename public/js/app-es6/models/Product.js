@@ -7,7 +7,7 @@ class Product {
     }
 
     get value() {
-        return this._value;
+        return parseFloat(Math.round(this._value * 100) / 100).toFixed(2);
     }
 
     get name() {

@@ -13,12 +13,23 @@
     <div class="container">
         <h1 class="text-center">Seu Supermercado</h1>
         <div id="mesageView"></div>
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-3">
+                <h4>Saldo inicial: R$
+                    <span class="text-success" id="initialValue">0.00</span>
+                </h4>
+            </div>
+            <div class="col-md-3">
+                <h4>Valor parcial: R$
+                    <span id="debits">0.00</span>
+                </h4>
+            </div>
+        </div>
         <form class="form" onsubmit="supermarketController.addProduct(event)">
-
             <div class="form-group">
                 <label for="data">Nome *</label>
-                <input type="text" id="productName" class="form-control"  autofocus placeholder="ex. Post-it colorido 100 unidades"
-                />
+                <input type="text" id="productName" class="form-control" autofocus placeholder="ex. Post-it colorido 100 unidades" />
             </div>
 
             <div class="form-group">
@@ -42,10 +53,13 @@
 </body>
 
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="js/app/models/Debits.js"></script>
 <script src="js/app/models/Product.js"></script>
 <script src="js/app/models/Message.js"></script>
 <script src="js/app/models/ProductsList.js"></script>
 <script src="js/app/views/MessageView.js"></script>
+<script src="js/app/views/DebitsView.js"></script>
 <script src="js/app/controllers/SupermarketController.js"></script>
 <script src="js/app/views/ProductsView.js"></script>
 <script src="js/app/services/ProxyFactory.js"></script>
