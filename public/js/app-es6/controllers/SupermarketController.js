@@ -9,7 +9,7 @@ class SupermarketController {
         this._inputValue = $('#productValue');
         this._inputCategory = $('#productCategory');
         this._listProducts = new Bind(new ProductsList(),
-            new ProductsView($('#productsView')), 'add', 'removeAll');
+            new ProductsView($('#productsView')), 'add', 'remove', 'removeAll');
         this._message = new Bind(
             new Message(), new MessageView($('#mesageView')),
             'content');
@@ -36,9 +36,18 @@ class SupermarketController {
                 document.querySelector('#initialValue').innerHTML = value;
                 let debitsView = document.querySelector('#debits');
                 this._debits = new Bind(new Debits(value),
-                    new DebitsView(debitsView), 'addDebit', 'removeAll');
+                    new DebitsView(debitsView), 'addDebit', 'removeDebit', 'removeAll');
             }
         });
+    }
+
+    deleteProduct(idProduct) {
+        let product = this._listProducts.remove(idProduct);
+
+        this._message.type = 'success';
+        this._message.content = `${product.name} removido com sucesso!`;
+
+        this._debits.removeDebit(parseFloat(product.value));
     }
 
     addProduct(event) {

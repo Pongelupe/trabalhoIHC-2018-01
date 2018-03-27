@@ -1,9 +1,15 @@
 class Product {
 
     constructor(value, name, category) {
+        this._id = IdGenerator.createNewId();
         this._value = value;
         this._name = name;
         this._category = category;
+    }
+
+
+    get id() {
+        return this._id;
     }
 
     get value() {

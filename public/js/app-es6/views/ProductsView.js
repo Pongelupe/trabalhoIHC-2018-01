@@ -24,11 +24,14 @@ class ProductsView {
     
         <tbody>
             ${products.map(product => `
-                
-                <tr>
+
+                <tr id='${product.id}'>
                     <td>${product.name}</td>
                     <td>${product.category}</td>
-                    <td>R$ ${product.value}</td>
+                    <td>
+                            R$ ${product.value}
+                            <i class="far fa-trash-alt" onclick='supermarketController.deleteProduct(${product.id})'></i>
+                    </td>
                 </tr>
                 
             `).join('')}                

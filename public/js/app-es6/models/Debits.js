@@ -14,6 +14,10 @@ class Debits {
     addDebit(value) {
         this._debits -= value;
     }
+    
+    removeDebit(value) {        
+        this._debits += value;
+    }
 
     removeAll() {
         this._debits = this._initialValue;

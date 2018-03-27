@@ -8,6 +8,14 @@ class ProductsList {
         this._products.push(product);
     }
 
+    remove(idProduct) {
+        return this._products.pop(this._findById(idProduct));
+    }
+
+    _findById(idProduct) {
+        return this._products.filter(product => product.id == idProduct)[0];
+    }
+
     get products() {
         return [].concat(this._products);
     }
