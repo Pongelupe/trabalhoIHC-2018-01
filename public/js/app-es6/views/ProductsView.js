@@ -25,12 +25,15 @@ class ProductsView {
         <tbody>
             ${products.map(product => `
 
-                <tr id='${product.id}'>
+                <tr>
                     <td>${product.name}</td>
-                    <td>${product.category}</td>
+                    <td>
+                        ${product.category}
+                        ${this._defineIcon(product.category)}
+                    </td>
                     <td>
                             R$ ${product.value}
-                            <i class="far fa-trash-alt" onclick='supermarketController.deleteProduct(${product.id})'></i>
+                            <i class="far fa-trash-alt" onclick='supermarketController.deleteProduct("${product.id}")'></i>
                     </td>
                 </tr>
                 
@@ -46,6 +49,20 @@ class ProductsView {
         
     </table>
         `;
+    }
+
+    _defineIcon(category) {
+        switch (category) {
+            case 'Alimentação':
+                return '<i class="fas fa-glass-martini"></i>';
+                break;
+            case 'Papelaria':
+                return '<i class="far fa-sticky-note"></i>';
+                break;
+            case 'Higiênie Pessoal':
+                return '<i class="fas fa-shower"></i>';
+                break;
+        }
     }
 
     update(model) {
