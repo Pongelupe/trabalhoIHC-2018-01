@@ -52,8 +52,12 @@ class SupermarketController {
 
     addProduct(event) {
         event.preventDefault();
-
         let product = new Product(this._inputValue.value, this._inputName.value, this._inputCategory.value);
+        this._addProduct(product);
+
+    }
+
+    _addProduct(product) {
         let errors = this._isProductValid(product);
         if (errors.length == 0) {
 
@@ -65,11 +69,29 @@ class SupermarketController {
             this._debits.addDebit(product.value);
 
             this._resetForm();
+            this._suggestProduct();
         } else {
 
             this._message.type = 'danger';
             this._message.content = `Erro ao adicionar:<br/>
                     ${errors.map(error => error).join('<br/>')}`;
+        }
+    }
+
+    _suggestProduct() {
+        if (this._listProducts.length % 3 == 0) {
+            let productSugested = this._listProducts.sugestNew();
+            swal({
+                closeOnClickOutside: false,
+                icon: 'warning',
+                text: `Deseja adicionar ${productSugested.name} a sua lista?\n
+                Por apenas R$ ${productSugested.value}`,
+                buttons: ["Não por agora", true]
+            })
+                .then(value => {
+                    if (value)
+                        this._addProduct(productSugested);
+                });
         }
     }
 
@@ -100,7 +122,7 @@ class SupermarketController {
     _resetForm() {
 
         this._inputName.value = '';
-        this._inputValue.value = 0.1;
+        this._inputValue.value = 0.0;
         this._inputCategory.value = 'Alimentação';
 
         this._inputName.focus();
