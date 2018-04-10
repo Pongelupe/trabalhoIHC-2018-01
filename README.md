@@ -17,3 +17,18 @@ Para rodar o projeto é necessário executar os passos abaixo:
      - npm start
 Então o projeto estará funcionando nesta url:
     http://localhost:3000
+
+As dependências para o desenvolvimento foram:
+
+		-	express
+		-	nodemon
+		- babel
+		- sweetAlert
+		- bootstrap 3
+		-	fontawesome
+
+Todas as dependências foram gerenciadas pelo npm.
+
+
+powered by @pongelupe
+Licença GNU. We support open source!
