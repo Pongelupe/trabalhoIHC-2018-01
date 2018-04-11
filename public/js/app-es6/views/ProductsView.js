@@ -54,13 +54,13 @@ class ProductsView {
     _defineIcon(category) {
         switch (category) {
             case 'Alimentação':
-                return '<i class="fas fa-glass-martini"></i>';
+                return `<i class="fas fa-glass-martini" data-placement="right" data-toggle="tooltip" title="${category}"></i>`;
                 break;
             case 'Papelaria':
-                return '<i class="far fa-sticky-note"></i>';
+                return `<i class="far fa-sticky-note" data-placement="right" data-toggle="tooltip" title="${category}"></i>`;
                 break;
             case 'Higiênie Pessoal':
-                return '<i class="fas fa-shower"></i>';
+                return `<i class="fas fa-shower" data-placement="right" data-toggle="tooltip" title="${category}"></i>`;
                 break;
         }
     }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -11,42 +10,52 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
         crossorigin="anonymous"></script>
 </head>
-
 <body>
+	<nav class="navbar navbar-light" style="background-color: #B27468;">
+		<div class="navbar-brand">
+		<i class="fas fa-shopping-cart fa-lg"></i>
+		 Seu Supermercado
+		</div>
+	</nav>
     <div class="container">
-        <h1 class="text-center">Seu Supermercado</h1>
         <div id="mesageView"></div>
         <div class="row">
             <div class="col-md-6"></div>
             <div class="col-md-3">
                 <h4>Saldo inicial: R$
-                    <span class="text-success" id="initialValue">0.00</span>
+                    <span class="text-success" id="initialValue">0,00</span>
                 </h4>
             </div>
             <div class="col-md-3">
                 <h4>Valor parcial: R$
-                    <span id="debits">0.00</span>
+                    <span id="debits">0,00</span>
                 </h4>
             </div>
         </div>
         <form class="form" onsubmit="supermarketController.addProduct(event)">
-            <div class="form-group">
-                <label for="data">Nome *</label>
-                <input type="text" id="productName" class="form-control" autofocus placeholder="ex. Post-it colorido 100 unidades" />
-            </div>
+					<div class="form-row">
+						<div class="form-group col-md-12">
+							<label for="data">Nome *</label>
+							<input type="text" id="productName" class="form-control" autofocus placeholder="ex. Post-it colorido 100 unidades" maxlength="30"/>
+						</div>
+					</div>
 
-            <div class="form-group">
-                <label for="value">Valor (em Reais) *</label>
-                <input id="productValue" type="number" class="form-control" step="0.01" value="0.00" />
-            </div>
-            <div class="form-group">
-                <label for="productCategory">Categoria *</label>
-                <select id="productCategory" class="form-control">
-                    <option>Alimentação</option>
-                    <option>Papelaria</option>
-                    <option>Higiênie Pessoal</option>
-                </select>
-            </div>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="value">Valor (em Reais) *</label>
+								<input id="productValue" type="number" class="form-control" step="0.01" value="0.00" />
+							</div>
+							<div class="form-group col-md-6">
+								<label for="productCategory">Categoria *</label>
+								<select id="productCategory" class="form-control">
+									<option>Alimentação</option>
+									<option>Papelaria</option>
+									<option>Higiênie Pessoal</option>
+								</select>
+							</div>
+							<div class="form-group col-md-2"><h1><i class="fas fa-info-circle fa-xs" onclick="supermarketController.info()"></i></h1></div>
+						</div>
+						<h5>* Campos obrigatórios</h5>
 
             <button class="btn btn-primary" type="submit">Adicionar novo produto</button>
             <button class="btn btn-danger" type="button" onclick="supermarketController.removeAllProducts()">Limpar lista</button>

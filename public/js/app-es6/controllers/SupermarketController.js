@@ -57,6 +57,10 @@ class SupermarketController {
 
     }
 
+		info() {
+			swal("Ooopsy Daisy!","Não encontrou o que procurava? Nossa equipe está elaborando novos produtos =)","info");
+		}
+
     _addProduct(product) {
         let errors = this._isProductValid(product);
         if (errors.length == 0) {
