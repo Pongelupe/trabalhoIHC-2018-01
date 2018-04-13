@@ -25,7 +25,7 @@ class SupermarketController {
                 attributes: {
                     value: "0.00",
                     type: "Number",
-                    step: "0.01"
+                    step: "0.01",
                 },
             }
         }).then(value => {
@@ -104,7 +104,7 @@ class SupermarketController {
         if (product.name == '')
             validationsErrors.push('O nome não pode ser vazio!');
         if (product.value <= 1.0)
-            validationsErrors.push('O valor deve ser superior a 1.00 real!');
+            validationsErrors.push('O valor deve ser superior a 1,00 real!');
 
         return validationsErrors;
     }
