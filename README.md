@@ -29,6 +29,7 @@ As dependências para o desenvolvimento foram:
 
 Todas as dependências foram gerenciadas pelo npm.
 
+Sistema rodando em https://pongelupe.github.io/trabalhoIHC-2018-01/public
 
 powered by @pongelupe
 Licença GNU. We support open source!
