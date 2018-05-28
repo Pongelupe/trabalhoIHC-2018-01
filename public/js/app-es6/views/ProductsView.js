@@ -25,7 +25,7 @@ class ProductsView {
         <tbody>
             ${products.map(product => `
 
-                <tr>
+                <tr style="background-color:${this._defineColor(product.category)};">
                     <td>${product.name}</td>
                     <td>
                         ${product.category}
@@ -61,6 +61,19 @@ class ProductsView {
                 break;
             case 'Higiênie Pessoal':
                 return `<i class="fas fa-shower" data-placement="right" data-toggle="tooltip" title="${category}"></i>`;
+                break;
+        }
+    }
+    _defineColor(category) {
+        switch (category) {
+            case 'Alimentação':
+                return 'lightblue';
+                break;
+            case 'Papelaria':
+                return 'coral';
+                break;
+            case 'Higiênie Pessoal':
+                return 'palegreen';
                 break;
         }
     }
