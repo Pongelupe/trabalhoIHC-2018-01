@@ -1,4 +1,6 @@
-class Product {
+import IdGenerator from '../helpers/IdGenerator'
+
+export default class Product {
 
     constructor(value, name, category) {
         this._id = IdGenerator.createNewId();

@@ -1,4 +1,4 @@
-class ProductsView {
+export default class ProductsView {
 
     constructor(target) {
         this._target = target;

@@ -1,4 +1,4 @@
-class Debits {
+export default class Debits {
     constructor(initialValue) {
         this._initialValue = initialValue;
         this._debits = initialValue;
@@ -14,8 +14,8 @@ class Debits {
     addDebit(value) {
         this._debits -= value;
     }
-    
-    removeDebit(value) {        
+
+    removeDebit(value) {
         this._debits += value;
     }
 

@@ -8,7 +8,8 @@
     "start": "npm run build && node index",
     "build": "babel public/js/app-es6 -d public/js/app  --source-maps",
     "watch": "babel public/js/app-es6 -d public/js/app  --source-maps --watch",
-    "dev": "nodemon index"
+    "dev": "webpack-dev-server --progress --colors --inline --hot",
+    "production": "webpack --progerss -p"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,19 @@
   },
   "homepage": "https://github.com/Pongelupe/trabalhoIHC-2018-01#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "font-awesome": "^4.7.0",
+    "sweetalert": "^2.1.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
     "babel-preset-es2015": "^6.24.1",
-    "nodemon": "^1.17.2"
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.9.2",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
   }
 }

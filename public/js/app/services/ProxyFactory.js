@@ -1,4 +1,4 @@
-class ProxyFactory {
+export default class ProxyFactory {
 
     static build(obj, props, action) {
 

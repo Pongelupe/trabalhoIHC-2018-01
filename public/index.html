@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -7,16 +8,15 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-theme.css">
     <link rel="stylesheet" href="css/main.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
-        crossorigin="anonymous"></script>
 </head>
+
 <body>
-	<nav class="navbar navbar-light" style="background-color: #B27468;">
-		<div class="navbar-brand">
-		<i class="fas fa-shopping-cart fa-lg"></i>
-		 Seu Supermercado
-		</div>
-	</nav>
+    <nav class="navbar navbar-light" style="background-color: #B27468;">
+        <div class="navbar-brand">
+            <i class="fas fa-shopping-cart fa-lg"></i>
+            Seu Supermercado
+        </div>
+    </nav>
     <div class="container">
         <div id="mesageView"></div>
         <div class="row">
@@ -32,53 +32,46 @@
                 </h4>
             </div>
         </div>
-        <form class="form" onsubmit="supermarketController.addProduct(event)">
-					<div class="form-row">
-						<div class="form-group col-md-12">
-							<label for="data">Nome *</label>
-							<input type="text" id="productName" class="form-control" autofocus placeholder="ex. Post-it colorido 100 unidades" maxlength="30"/>
-						</div>
-					</div>
+        <form class="form">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="data">Nome *</label>
+                    <input type="text" id="productName" class="form-control" autofocus placeholder="ex. Post-it colorido 100 unidades" maxlength="30"
+                    />
+                </div>
+            </div>
 
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label for="value">Valor (em Reais) *</label>
-								<input id="productValue" type="number" class="form-control" step="0.01" value="0.00" />
-							</div>
-							<div class="form-group col-md-6">
-								<label for="productCategory">Categoria *</label>
-								<select id="productCategory" class="form-control">
-									<option>Alimentação</option>
-									<option>Papelaria</option>
-									<option>Higiênie Pessoal</option>
-								</select>
-							</div>
-							<div class="form-group col-md-2"><h1><i class="fas fa-info-circle fa-xs" onclick="supermarketController.info()"></i></h1></div>
-						</div>
-						<h5>* Campos obrigatórios</h5>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="value">Valor (em Reais) *</label>
+                    <input id="productValue" type="number" class="form-control" step="0.01" value="0.00" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="productCategory">Categoria *</label>
+                    <select id="productCategory" class="form-control">
+                        <option>Alimentação</option>
+                        <option>Papelaria</option>
+                        <option>Higiênie Pessoal</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <h1>
+                        <i class="fas fa-info-circle fa-xs"></i>
+                    </h1>
+                </div>
+            </div>
+            <h5>* Campos obrigatórios</h5>
 
             <button class="btn btn-primary" type="submit">Adicionar novo produto</button>
-            <button class="btn btn-danger" type="button" onclick="supermarketController.removeAllProducts()">Limpar lista</button>
+            <button class="btn btn-danger" type="button" id="btn-empty">Limpar lista</button>
         </form>
         <div id="productsView"></div>
     </div>
 </body>
 
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="js/app/helpers/IdGenerator.js"></script>
-<script src="js/app/models/Debits.js"></script>
-<script src="js/app/models/Product.js"></script>
-<script src="js/app/models/Message.js"></script>
-<script src="js/app/models/ProductsList.js"></script>
-<script src="js/app/views/MessageView.js"></script>
-<script src="js/app/views/DebitsView.js"></script>
-<script src="js/app/controllers/SupermarketController.js"></script>
-<script src="js/app/views/ProductsView.js"></script>
-<script src="js/app/services/ProxyFactory.js"></script>
-<script src="js/app/helpers/Bind.js"></script>
-<script>
-    let supermarketController = new SupermarketController();
-</script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
+    crossorigin="anonymous"></script>
+<script src="bundle.js"></script>
 
 </html>

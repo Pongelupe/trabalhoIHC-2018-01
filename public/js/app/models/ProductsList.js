@@ -1,4 +1,6 @@
-class ProductsList {
+import Product from './Product'
+
+export default class ProductsList {
 
     constructor() {
         this._products = [];

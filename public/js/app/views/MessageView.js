@@ -1,4 +1,4 @@
-class MessageView {
+export default class MessageView {
 
     constructor(target) {
         this._target = target;

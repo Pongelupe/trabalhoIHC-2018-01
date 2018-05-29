@@ -1,4 +1,13 @@
-class SupermarketController {
+import Bind from '../helpers/Bind'
+import Product from '../models/Product'
+import ProductsList from '../models/ProductsList'
+import ProductsView from '../views/ProductsView'
+import Message from '../models/Message'
+import MessageView from '../views/MessageView'
+import Debits from '../models/Debits'
+import DebitsView from '../views/DebitsView'
+
+export default class SupermarketController {
 
     constructor() {
         this._init();
@@ -57,9 +66,9 @@ class SupermarketController {
 
     }
 
-		info() {
-			swal("Ooopsy Daisy!","Não encontrou o que procurava? Nossa equipe está elaborando novos produtos =)","info");
-		}
+    info() {
+        swal("Ooopsy Daisy!", "Não encontrou o que procurava? Nossa equipe está elaborando novos produtos =)", "info");
+    }
 
     _addProduct(product) {
         let errors = this._isProductValid(product);

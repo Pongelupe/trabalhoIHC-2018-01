@@ -1,4 +1,4 @@
-class DebitsView {
+export default class DebitsView {
 
     constructor(target) {
         this._target = target;
